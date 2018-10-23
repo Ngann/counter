@@ -40,20 +40,24 @@
 //   })
 // })
 
-var inputString = $("input#sentence").val();
-
+// ForEach using inludes method
 $(document).ready(function() {
   $("form").submit(function(event){
     event.preventDefault(event);
 
+    var inputString = $("input#sentence").val();
     var removeVowels = function(string) {
       var outputArray = [];
       var stringLetters = string.split('');
       var vowels = ['a', 'e', 'i', 'o', 'u'];
       stringLetters.forEach(function(letter) {
-        if (vowels.includes(letter) = false) {
+        if (vowels.includes(letter) === false) {
+          outputArray.push(letter);
         }
-        outputArray.push(letter);
+        if (vowels.includes(letter) === true) {
+          outputArray.push('-');
+
+        }
       })
       return outputArray.join('');
     }
